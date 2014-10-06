@@ -1,9 +1,9 @@
 require "spec_helper"
 require "person.rb"
 
-describe Person do
-  dummy_person = Person.new("Zombie", 5)
-  
+RSpec.describe Person do
+  subject(:dummy_person) { Person.new("Zombie", 5) }
+
   it 'should have the name Zombie' do
     (expect(dummy_person.name).to eq("Zombie"))
   end
