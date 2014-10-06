@@ -1,3 +1,4 @@
+# The Person Object for storing the data
 class Person
   attr_accessor :name, :age
 
@@ -7,10 +8,9 @@ class Person
   end
 
   def create_resume
-    File.open("resume_" + name + ".csv", "w") do |file|
-      file.write("name,#{@name}")
-      file.write("\n")
-      file.write("age,#{@age}")
+    File.open('resume_' + name + '.csv', 'w') do |file|
+      file.puts("name,#{@name}")
+      file.puts("age,#{@age}")
     end
   end
 end

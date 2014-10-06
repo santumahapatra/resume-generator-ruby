@@ -1,10 +1,10 @@
-require "spec_helper"
-require "person.rb"
+require 'spec_helper'
+require 'person.rb'
 
 RSpec.describe Person do
 
   dummy = {
-    name: "Zombie",
+    name: 'Zombie',
     age: 5
   }
 
@@ -18,24 +18,24 @@ RSpec.describe Person do
     expect(dummy_person.age).to eq(dummy[:age])
   end
 
-  describe "#create_output" do
+  describe '#create_output' do
     it 'should create resume in csv format' do
       dummy_person.create_resume
-      resume_csv_array = Dir["resume_*.csv"]
-      expect(resume_csv_array.include?("resume_#{dummy[:name]}.csv")).to eq(true)
+      resume_csv_array = Dir['resume_*.csv']
+      expect(resume_csv_array.include?("resume_#{dummy[:name]}.csv"))
     end
 
     it 'the file should have the right contents' do
       output_hash = {}
-      File.open("resume_#{dummy[:name]}.csv", "r") do |file|
+      File.open("resume_#{dummy[:name]}.csv", 'r') do |file|
         file.each_line do |line|
           output = line.split(',')
-          output_hash[output[0].to_sym] = output_hash[output[1]]
+          output_hash[output[0].to_sym] = (output[1].split)[0]
         end
       end
 
       output_hash.each do |key, value|
-        expect(output_hash[:key]).to eq(dummy[:key])
+        expect(value).to eq(dummy[key.to_sym].to_s)
       end
     end
   end

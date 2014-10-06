@@ -1,1 +1,1 @@
-#puts "Welcome to the Awesome Resume Generator"
+# puts 'Welcome to the Awesome Resume Generator'
