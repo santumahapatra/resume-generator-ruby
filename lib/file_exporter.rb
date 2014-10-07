@@ -1,5 +1,9 @@
 # Parent class of exporters
 class FileExporter
+  def self.descendants
+    ObjectSpace.each_object(Class).select { |klass| klass < self }
+  end
+  
   def export(output)
     raise 'Method not implemented'
   end
