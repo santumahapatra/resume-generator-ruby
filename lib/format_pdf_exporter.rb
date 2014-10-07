@@ -4,6 +4,10 @@ require 'prawn'
 class PdfExporter < FileExporter
   @@format = 'pdf'
 
+  def self.respond_to(file_type)
+    file_type == @@format
+  end
+
   def export(output)
     pdf_file = get_file_name @@format
     pdf = Prawn::Document.new
