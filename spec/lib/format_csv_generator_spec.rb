@@ -17,4 +17,14 @@ describe CsvExporter do
       expect(Dir['resume_*.csv'].empty?).to eq(false)
     end
   end
+
+  describe '#self.respond_to(file_type)' do
+    it 'returns true if input is csv' do
+      expect(CsvExporter.respond_to('csv')).to eq(true)
+    end
+
+    it 'returns false if input is txt' do
+      expect(CsvExporter.respond_to('txt')).to eq(false)
+    end
+  end
 end
