@@ -6,7 +6,6 @@ describe PdfExporter do
 
   describe '#export' do
     let(:resume) { "name,Zombie\nage,5" }
-    let(:output_format) { 'pdf' }
 
     after(:all) do
       file_array = Dir['resume_*.*']
@@ -14,7 +13,7 @@ describe PdfExporter do
     end
 
     it 'constructs resume in pdf format' do
-      pdf_exporter.export resume, output_format
+      pdf_exporter.export resume
       expect(Dir['resume_*.pdf'].empty?).to eq(false)
     end
   end

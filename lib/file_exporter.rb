@@ -1,6 +1,6 @@
 # Parent class of exporters
 class FileExporter
-  def export(output, file_type)
+  def export(output)
     raise 'Method not implemented'
   end
 

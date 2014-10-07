@@ -6,7 +6,6 @@ describe CsvExporter do
 
   describe '#export' do
     let(:resume) { "name,Zombie\nage,5" }
-    let(:output_format) { 'csv' }
 
     after(:all) do
       file_array = Dir['resume_*.*']
@@ -14,7 +13,7 @@ describe CsvExporter do
     end
 
     it 'creates resume in csv format' do
-      csv_exporter.export resume, output_format
+      csv_exporter.export resume
       expect(Dir['resume_*.csv'].empty?).to eq(false)
     end
   end
