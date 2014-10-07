@@ -8,16 +8,26 @@ describe OutputGenerator do
 
   describe '#execute' do
 
+    after(:all) do
+      file_array = Dir['resume_*.*']
+      file_array.each { |f| File.delete(f) }
+    end
+
     context "in csv format" do
       let (:output_format) { "csv" } 
-      after(:all) do
-        file_array = Dir['resume_*.csv']
-        file_array.each { |f| File.delete(f) }
-      end
 
       it 'creates file' do
         output_generator.execute resume, output_format
-        expect !(Dir['resume_*.csv'].empty?)
+        expect(Dir['resume_*.csv'].empty?).to eq(false)
+      end
+    end
+
+    context "in pdf format" do
+      let (:output_format) { "pdf" } 
+
+      it 'creates file' do
+        output_generator.execute resume, output_format
+        expect(Dir['resume_*.pdf'].empty?).to eq(false)
       end
     end
 
