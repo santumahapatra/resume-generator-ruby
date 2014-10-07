@@ -15,4 +15,8 @@ class OutputGenerator
       pdf.render_file pdf_file
     end
   end
+
+  def get_file_name file_type
+    "resume_#{Time.now.to_i}.#{file_type}"
+  end
 end
