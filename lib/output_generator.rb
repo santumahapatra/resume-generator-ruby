@@ -16,7 +16,7 @@ class OutputGenerator
     end
   end
 
-  def get_file_name file_type
+  def get_file_name(file_type)
     "resume_#{Time.now.to_i}.#{file_type}"
   end
 end

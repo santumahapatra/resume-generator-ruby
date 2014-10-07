@@ -33,11 +33,12 @@ describe OutputGenerator do
 
   end
 
-  describe "#get_file_name" do
+  describe '#get_file_name' do
     let(:output_format) { 'csv' }
 
-    it "creates the correct file name" do
-      expect(output_generator.get_file_name(output_format)).to match(/resume_[\d]+.#{output_format}/)
+    it 'creates the correct file name' do
+      required_file_name = /resume_[\d]+.#{output_format}/
+      expect(output_generator.get_file_name(output_format)).to match(required_file_name)
     end
 
   end
