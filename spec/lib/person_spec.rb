@@ -22,27 +22,33 @@ RSpec.describe Person do
     end
   end
 
-  describe '#create_output' do
-    it 'should create resume in csv format' do
-      dummy_person.create_resume
-      resume_csv_array = Dir['resume_*.csv']
-      expect(resume_csv_array.include?("resume_#{dummy[:name]}.csv"))
+  describe '#create_resume' do
+    it 'creates resume in string format' do
+      expect(dummy_person.create_resume).to eq("name,#{dummy[:name]}\nage,#{dummy[:age]}")
     end
   end
 
-  describe "output file" do
-    it 'the csv file should have name and age' do
-      output_hash = {}
-      File.open("resume_#{dummy[:name]}.csv", 'r') do |file|
-        file.each_line do |line|
-          output = line.strip.split(',')
-          output_hash[output[0].to_sym] = output[1]
-        end
-      end
+  # describe '#create_output' do
+  #   it 'should create resume in csv format' do
+  #     dummy_person.create_resume
+  #     resume_csv_array = Dir['resume_*.csv']
+  #     expect(resume_csv_array.include?("resume_#{dummy[:name]}.csv"))
+  #   end
+  # end
 
-      output_hash.each do |key, value|
-        expect(value).to eq(dummy[key.to_sym].to_s)
-      end
-    end
-  end
+  # describe "output file" do
+  #   it 'the csv file should have name and age' do
+  #     output_hash = {}
+  #     File.open("resume_#{dummy[:name]}.csv", 'r') do |file|
+  #       file.each_line do |line|
+  #         output = line.strip.split(',')
+  #         output_hash[output[0].to_sym] = output[1]
+  #       end
+  #     end
+
+  #     output_hash.each do |key, value|
+  #       expect(value).to eq(dummy[key.to_sym].to_s)
+  #     end
+  #   end
+  # end
 end
