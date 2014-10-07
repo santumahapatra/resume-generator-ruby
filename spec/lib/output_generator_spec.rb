@@ -3,8 +3,8 @@ require 'output_generator.rb'
 
 describe OutputGenerator do
 
-  let (:output_generator) { OutputGenerator.new }
-  let (:resume) { "name,Zombie\nage,5" }
+  let(:output_generator) { OutputGenerator.new }
+  let(:resume) { "name,Zombie\nage,5" }
 
   describe '#execute' do
 
@@ -13,8 +13,8 @@ describe OutputGenerator do
       file_array.each { |f| File.delete(f) }
     end
 
-    context "in csv format" do
-      let (:output_format) { "csv" } 
+    context 'in csv format' do
+      let(:output_format) { 'csv' }
 
       it 'creates file' do
         output_generator.execute resume, output_format
@@ -22,8 +22,8 @@ describe OutputGenerator do
       end
     end
 
-    context "in pdf format" do
-      let (:output_format) { "pdf" } 
+    context 'in pdf format' do
+      let(:output_format) { 'pdf' }
 
       it 'creates file' do
         output_generator.execute resume, output_format

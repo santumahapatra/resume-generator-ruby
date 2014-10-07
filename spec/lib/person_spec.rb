@@ -11,6 +11,7 @@ RSpec.describe Person do
   end
 
   let(:dummy_person) { Person.new(dummy[:name], dummy[:age]) }
+  let(:expected_output) { "name,#{dummy[:name]}\nage,#{dummy[:age]}" }
 
   describe 'instantiation' do
     it 'sets the name' do
@@ -24,7 +25,7 @@ RSpec.describe Person do
 
   describe '#create_resume' do
     it 'creates resume in string format' do
-      expect(dummy_person.create_resume).to eq("name,#{dummy[:name]}\nage,#{dummy[:age]}")
+      expect(dummy_person.create_resume).to eq(expected_output)
     end
   end
   # describe "output file" do
