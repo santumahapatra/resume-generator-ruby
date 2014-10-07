@@ -2,8 +2,10 @@ require 'prawn'
 
 # Creates PDF format of the Resume
 class PdfExporter < FileExporter
+  @@format = 'pdf'
+
   def export(output, file_type)
-    pdf_file = get_file_name file_type
+    pdf_file = get_file_name @@format
     pdf = Prawn::Document.new
     pdf.text(output)
     pdf.render_file pdf_file
