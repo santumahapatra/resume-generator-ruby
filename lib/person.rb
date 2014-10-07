@@ -11,11 +11,4 @@ class Person
   def create_resume
     "name,#{@name}\nage,#{@age}"
   end
-
-  # def create_resume
-  #   File.open('resume_' + name + '.csv', 'w') do |file|
-  #     file.puts("name,#{@name}")
-  #     file.puts("age,#{@age}")
-  #   end
-  # end
 end
