@@ -1,5 +1,5 @@
 # Creates CSV format of the Resume
-class CsvGenerator < FileExporter 
+class CsvExporter < FileExporter
   def export(output, file_type)
     file_name = get_file_name file_type
     File.open(file_name, 'w') do |file|
